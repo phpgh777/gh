@@ -1,14 +1,1434 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<form action="hello.php" method="get">
+<html>
 
-		姓名:<input type="text" name="username">
-		<input type="submit" value="xx">
-	</form>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #333333;
+				
+			}
+			
+			body {
+				background-color: #f5f5f5;
+				font: 12px "微软雅黑";
+			}
+			
+			.top_ad {
+				height: 80px;
+				position: relative;
+			}
+			
+			.close_btn {
+				position: absolute;
+				top: 7px;
+				right: 350px;
+				border: 1px solid beige;
+			}
+			
+			.wrap {
+				width: 1228px;
+				margin: auto;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.header {
+				height: 80px;
+			}
+			
+			.hd_nav_left {
+				float: left;
+				display: block;
+				height: 30px;
+				padding: 0 10px;
+				line-height: 30px;
+			}
+			.hd_nav_login_bth{
+				color: red;
+			}
+			
+			.hd_nav_right {
+				float: right;
+			}
+			
+			.hd_nav_right ul li {
+				float: left;
+				margin-right: 30px;
+				height: 30px;
+				line-height: 30px;
+			}
+			.hd_nav_hi{
+				color: red;
+			}
+			
+			.hd_nav {
+				border-bottom: 1px solid #e5e5e5;
+				height: 30px;
+				background-color: #f4f4f4;
+			}
+			
+			.clearfix:after {
+				display: block;
+				content: ".";
+				height: 0px;
+				clear: both;
+				visibility: hidden;
+				font-size: 0px;
+				line-height: 0px;
+			}
+			
+			.search_content {
+				float: right;
+				width: 974px;
+				height: 150px;
+				padding: 32px 14px 0px 35px;
+			}
+			
+			.search_input {
+				float: left;
+				width: 754px;
+				height: 40px;
+			}
+			
+			.cart_btn {
+				float: right;
+				width: 130px;
+				height: 40px;
+			}
+			
+			.hot_search {
+				height: 36px;
+			}
+			
+			.hot_search a {
+				padding: 0px 10px;
+				color: #666;
+			}
+			
+			.column_menu {
+				height: 40px;
+			}
+			
+			.column_menu li {
+				float: left;
+				padding: 0px 15px;
+				font-size: 15px;
+			}
+			
+			.search_bth {
+				width: 50px;
+				height: 36px;
+				border: 0 none;
+				background-color: #FF4040;
+				text-align: center;
+				line-height: 36px;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+			.search {
+				margin-top: 0px;
+			}
+			
+			.shopping_cart_btn {
+				border: 1px solid #d7d7d7;
+				outline: none;
+				width: 132px;
+				height: 40px;
+				background-color: #ffffff;
+				font-size: 16px;
+				color: #666666;
+				cursor: pointer;
+				float: right;
+			}
+			
+			.search_input_text {
+				width: 685px;
+				height: 36px;
+				outline: 0 none;
+				border: 0 none;
+				padding-left: 15px;
+				font-size: 14px;
+				color: #AAAAAA;
+				line-height: 36px;
+				float: left;
+			}
+			
+			.search_input {
+				height: 36px;
+				border: 0 none;
+				background-color: #ff4040;
+				text-align: center;
+				line-height: 36px;
+				color: #fff000;
+				cursor: pointer;
+				line-height: 15px;
+				float: left;
+			}
+			
+			.logo img {
+				float: left;
+				width: 200px;
+				height: 180px;
+			}
+			/*搜索区结束*/
+			
+			.vertical_menu {
+				float: left;
+				background-color: #000000;
+				height: 400px;
+				width: 205px;
+			}
+			
+			.pics {
+				float: right;
+			}
+			
+			.vertical_menu a {
+				color: white;
+				padding: 5px;
+				display: block;
+				margin-left: 40px;
+			}
+			/*抢购区*/
+			
+			.seckill_pic {
+				width: 205px;
+				height: 140px;
+				float: left;
+				margin-top: 20px;
+			}
+			
+			.seckill_pic img {
+				width: 205px;
+				height: 140px;
+			}
+			
+			.seckill_list {
+				height: 140px;
+				width: 1021px;
+				float: left;
+				
+			}
+			
+			.good_right {
+				height: 110px;
+				width: 110px;
+				float: left;
+			}
+			
+			.good_right img {
+				height: 110px;
+				width: 110px;
+			}
+			
+			.good_left {
+				float: left;
+				width: 92px;
+				line-height: 30px;
+			}
+			.good_price{
+				color: red;
+				margin-top: 40PX;
+			}
+			.good_ref_price{
+				margin-top: 5PX;
+			}
+			
+			.seckill_goods li {
+				height: 110px;
+				width: 233px;
+				margin: 15px 20px;
+			}
+			
+			.wai {
+				height: 137px;
+				width: 253px;
+				float: left;
+			}
+			
+			.good_name {
+				width: 90px;
+				height: 15px;
+				line-height: 20PX;
+				
+			}
+			/*团购排行区*/
+			
+			.brand_sale .group_buy h4,
+			.brand_sale .area_rank h4 {
+				margin-bottom: 7px;
+				border-top: 1px solid #fb744b;
+				height: 32px;
+				text-align: center;
+				line-height: 32px;
+				font-weight: normal;
+			}
+			
+			.brand_sale h4 em{
+				
+				background: #fb6233;
+				position: relative;
+				top: -3PX;
+				width: 140PX;
+				margin-top: -3PX;
+				color: #FFFFFF;
+				font-size: 18PX;
+				font-style: normal;
+			}
+			
+			.brand_sale {
+				margin-top: 20px;
+			}
+			
+			.left_banner {
+				height: 400px;
+				float: left;
+				width: 260px;
+				margin-right: 12px;
+			}
+			
+			.left_banner img {
+				height: 400px;
+				float: left;
+				width: 260px;
+				margin-right: 12px;
+			}
+			
+			.group_buy {
+				float: left;
+				width: 484px;
+				height: 400px;
+				position: relative;
+			}
+			
+			.area_rank {
+				float: right;
+				width: 453px;
+				height: 400px;
+				position: relative;
+			}
+			.group_buy_right{
+				float: right;
+				width: 242px;
+				height: 360px;
+			}
+			
+			.group_buy_left {
+				float: left;
+				width: 242px;
+				height: 385px;
+			}
+			
+			.group_buy_left img {
+				width: 242px;
+				height: 360px;
+			}
+			
+			.group_buy_right_img img {
+				height: 110px;
+				width: 110px;
+			}
+			
+			.group_buy_right_top {
+				position: relative;
+				height: 180px;
+			}
+			
+			.group_buy_right_bottom {
+				position: relative;
+				height: 180px;
+			}
+			
+			.group_buy_right_img {
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+			/*生未自由区*/
+			.high_beer{
+				margin-top: 20px;
+			}
+			/*全球进口区*/
+			.global{
+				margin-top: 20px;
+				
+			}
+			.global_perrier{
+				height: 500px;
+				float: left;
+				
+			}
+			.global_perrier img{
+				height: 500px;
+				width: 300px;
+
+				
+			}
+			.global_love{
+				height: 500px;
+				float: left;
+				width: 600px;
+			}
+			.global_love p{
+				font-size: 14px;
+				padding-top: 20px;
+				position: absolute;
+				top: 5px;
+				left: 20px;
+				
+				
+			}
+			.global_love span{
+				font-size: 11px;
+				color: lightslategray;
+				margin-top: 20px;
+				position: absolute;
+				top: 30px;
+				left: 20px;
+			}
+			.global_love_left{
+				width: 400px;
+				height: 500px;
+				float: left;
+				
+			}
+			.global_love_left_top{
+				width: 400px;
+				height: 250px;
+			}
+			.global_love_left_top img{
+				width: 400px;
+				height: 250px;
+			}
+			.global_love_left_bottom{
+				width: 400px;
+				height: 250px;
+				
+			}
+			.global_love_left_bottom_left{
+				width: 200px;
+				height: 250px;
+				float: left;
+				position: relative;
+			}
+			.global_love_left_bottom_right{
+				width: 200px;
+				height: 250px;
+				float: left;
+				position: relative;
+			}
+			.global_love_left_bottom_left img{
+				height: 125px;
+				width: 150px;
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+			}
+			.global_love_left_bottom_right img{
+				height: 125px;
+				width: 150px;
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+			}
+			.global_love_right{
+				width: 190px;
+				height: 500px;
+				float: left;
+				position: relative;
+
+				
+			}
+			.global_love_right_top{
+				height: 250px;
+				width:200px ;
+				position: relative;
+				
+			}
+			.global_love_right_bottom{
+				height: 250px;
+				width:200px ;
+				position: relative;
+				
+			}
+		
+			.global_love_right_top img{
+				height: 125px;
+				width: 150px;
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+				
+			}
+			.global_love_right_bottom img{
+				height: 125px;
+				width: 150px;
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+			}
+			
+			
+			
+			/* 全球进口最右边区域 */
+			.global_right{
+				height: 500px;
+				float: left;
+				width: 318px;
+			}
+			.global_right ul{
+				float: left;
+			}
+			.global_right li{
+				position: relative;
+				height: 166px;
+				width: 159px;
+			}
+			.global_right img{
+				height: 80px;
+				width: 80px;
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+				}
+			.global_right span{
+				font-size: 15px;
+			}
+			.pink{
+				
+				
+				
+			}
+			.green{
+				
+			}
+			.cerulean{
+				
+			}
+			.yellow{
+				
+			}
+			.baby{
+				
+			}
+			
+			.beauty{
+				background-color: lightpink;
+			}
+			.fresh{
+				background-color: palegreen;
+				
+			}
+			.cleantng{
+				background-color: aqua;
+				
+			}
+			.mom{
+				background-color: tan;
+			}
+			.home{
+				background-color: #FFB6C1;
+				
+			}
+			.health{
+				background-color: #98FB98;
+				
+			}
+			.boxA{
+				border: 2px solid #FF69B4;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+			.boxB{
+				border: 2px solid forestgreen;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+			.boxC{
+				border: 2px solid darkturquoise;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+			.boxD{
+				border: 2px solid darkred;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+			.boxE{
+				border: 2px solid #FF69B4;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+			.boxF{
+				border: 2px solid forestgreen;
+				width:20px;
+				height: 0px;
+				position: absolute;
+				top: 50px;
+			}
+		
+				
+				/* 懂你想要 */
+			.understand ul li{
+				float: left;
+				width: 230px;
+				height: 300px;
+				border: 1px solid red;
+				margin: 5PX;
+				position: relative;
+			}
+			.understand img{
+				margin-top: 3px;
+				margin: 0px 5px;
+			}
+			.understand h5{
+				font-size: 14px;
+				color: #CC0000;
+				position: absolute;
+				bottom: 10px;
+				left: 5px;
+			}
+			.understand p{
+				margin: 0px 5px;
+				
+			}
+			.self{
+				font-size: 11px;
+				color: red;
+				border: 1px solid red;
+			}
+			.ticket{
+				font-size: 11px;
+				color: red;
+				border: 1px solid red;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			.presenter{
+				font-size: 11px;
+				color: hotpink;
+				border: 1px solid hotpink;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				
+			}
+			.minus{
+				font-size: 11px;
+				color: hotpink;
+				border: 1px solid hotpink;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			.full{
+				font-size: 11px;
+				color: hotpink;
+				border: 1px solid hotpink;
+				position: absolute;
+				right: 40px;
+				bottom: 10px;
+			}
+			
+			
+			
+				
+			/*排行榜*/
+			
+			.area_rank_top li {
+				float: left;
+				margin: 20px;
+			}
+			
+			.area_rank_bottom li img {
+				height: 100px;
+				width: 100px;
+			}
+			
+			.area_rank_bottom li {
+				height: 120px;
+				width: 100px;
+				float: left;
+				margin: 20px;
+			}
+			
+			.footer {
+				background-color: #FFFFFF;
+			}
+			
+			.ft_service {
+				padding: 30px 0px;
+				border-bottom: 1px solid #ebebeb;
+			}
+			
+			.ft_service a {
+				display: block;
+				float: left;
+				width: 204px;
+				height: 66px;
+				margin: 0px 51px;
+			}
+			
+			.ft_service a b {
+				display: block;
+				margin-top: 10px;
+				font-size: 16px;
+				color: #333;
+			}
+			
+			.ft_service a span {
+				font-size: 14px;
+				color: #999;
+				line-height: 26px;
+			}
+			
+			.ft_service a img {
+				float: left;
+				display: block;
+				width: 66px;
+				height: 66px;
+				margin-right: 15px;
+			}
+			/*尾部中间区域*/
+			
+			.ft_help_list {
+				float: left;
+			}
+			
+			.ft_help_zhong {
+				float: left;
+				margin: 30px 50px 0 50px;
+			}
+			
+			.ft_help_right {
+				float: left;
+				margin-top: 30px;
+			}
+			
+			.ft_help_list dl {
+				float: left;
+				margin: 30px 50px 0 50px;
+			}
+			
+			.ft_service_link dl dt {
+				height: 32px;
+				padding: 0 8px;
+				font-size: 14px;
+				color: #666;
+				line-height: 32px;
+				overflow: hidden;
+				font-family: "微软雅黑";
+				color: #666;
+				font-weight: bold;
+			}
+			
+			.ft_help_list dd {
+				line-height: 30px;
+				font-size: 12px;
+			}
+			
+			.ft_copy_right {
+				margin: 15px 0;
+				color: #666;
+				text-align: center;
+				padding: 0;
+				line-height: 100%;
+			}
+			
+			.ft_copy_right a {
+				color: #666666;
+				margin: 0px 10px;
+			}
+			
+			.ft_copy_right a:hover {
+				color: #cc0000;
+			}
+			
+			.ft_pic_link {
+				padding: 10px 0px 20px 0px;
+				text-align: center;
+			}
+			
+			.ft_pic_link a {
+				display: inline-block;
+				margin: 0px 4px;
+			}
+			
+			img {
+				border: 0px none;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="top_ad">
+
+			<div class="wrap top_ad_pic">
+				<img src="img/topAdPic.png" />
+				<a href="#"><span class="close_btn">X</span></a>
+
+			</div>
+
+		</div>
+		<!--[if IE]>
+			顶部广告区
+		<![endif]-->
+
+		<div class="header">
+			<div class="wrap hd_nav">
+				<div class="hd_nav_left">
+					<a href="#">送货地址：上海</a>
+				</div>
+				<div class="hd_nav_right">
+					<ul>
+
+						<li><span class="hd_nav_hi">
+					Hi,请
+				</span>&nbsp;
+							<a class="hd_nav_login_bth" href="#">登陆&nbsp;</a>
+							<a class="hd_nav_register_bth" href="#">&nbsp;注册</a>
+						</li>
+						<li>
+							<a href="#">我的订单</a>
+						</li>
+						<li>
+							<a href="#">客户服务</a>
+						</li>
+						<li>
+							<a href="#">APP下载</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+		<!--[if IE]>
+			头部导航区 
+		<![endif]-->
+
+		<div class="search">
+			<div class="wrap clearfix">
+				<div class="logo"><img src="img/logo(1).png" /></div>
+				<div class="search_content">
+					<div class="clearfix">
+						<div class="search_input">
+							<input class="search_input_text" type="text" placeholder="三枪内衣节 买3免1" name="" id="" value="" />
+							<button type="button" class="search_bth">搜索 </button>
+
+						</div>
+						<div class="cart_btn">
+							<button type="button" class="shopping_cart_btn">
+							购物车
+						</button>
+						</div>
+					</div>
+					<div class="hot_search">
+						<a title="洽洽" target="_blank" href="#">洽洽</a>
+						<a title="虾米干" target="_blank" href="#">虾米干</a>
+						<a title="腐竹" target="_blank" href="#">腐竹</a>
+						<a title="鱼片" target="_blank" href="#">鱼片</a>
+						<a title="鲳鱼" target="_blank" href="#">鲳鱼</a>
+						<a title="小蒸锅" target="_blank" href="#">小蒸锅</a>
+						<a title="金典" target="_blank" href="#">金典</a>
+						<a title="五常米" target="_blank" href="#">五常米</a>
+						<a title="波司登内裤" target="_blank" href="#">波司登内裤</a>
+						<a title="华夫饼" target="_blank" href="#">华夫饼</a>
+					</div>
+					<div class="column_menu clearfix">
+						<ul class="clearfix">
+							<li>
+								<a href="#" title="1号抢购" target="_blank">1号抢购</a>
+							</li>
+							<li>
+								<a href="#" title="1号团" target="_blank">1号团</a>
+							</li>
+							<li>
+								<a href="#" title="领券中心" target="_blank">领券中心</a>
+							</li>
+							<li>
+								<a href="#" title="捡便宜" target="_blank">捡便宜</a>
+							</li>
+							<li>
+								<a href="#" title="全球进口" target="_blank">全球进口</a>
+							</li>
+							<li>
+								<a href="#" title="1号生鲜" target="_blank">1号生鲜</a>
+							</li>
+							<li>
+								<a href="#" title="美妆馆" target="_blank">美妆馆</a>
+							</li>
+							<li>
+								<a href="#" title="家居馆" target="_blank">家居馆</a>
+							</li>
+							<li>
+								<a href="#" title="电器城" target="_blank">电器城</a>
+							</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="search">
+			<div class="wrap ">
+				<div class="vertical_menu">
+					<ul>
+						<li>
+							<a title="全球进口" href="#" target="_blank">全球进口</a>
+						</li>
+						<li>
+							<a title="食品" href="#" target="_blank">食品/酒/生鲜</a>
+						</li>
+						<li>
+							<a title="母婴" href="#" target="_blank">母婴/玩具/童装</a>
+						</li>
+						<li>
+							<a title="宠物" href="#" target="_blank">宠物/纸巾/厨卫清洁</a>
+						</li>
+						<li>
+							<a title="家居" href="#" target="_blank">家居/家纺/家装</a>
+						</li>
+						<li>
+							<a title="美妆个人清洁" href="#" target="_blank">美妆个人清洁</a>
+						</li>
+						<li>
+							<a title="服饰" href="#" target="_blank">女装/男装/内衣/珠宝</a>
+						</li>
+						<li>
+							<a title="鞋包" href="#" target="_blank">鞋靴/箱包/户外运动</a>
+						</li>
+						<li>
+							<a title="数码用品" href="#" target="_blank">手机/数码/电脑办公</a>
+						</li>
+						<li>
+							<a title="家用电器" href="#" target="_blank">家用电器/汽车用品</a>
+						</li>
+						<li>
+							<a title="医药" href="#" target="_blank">医药/保健滋补/成人图书</a>
+						</li>
+
+					</ul>
+
+				</div>
+				<div class="pics">
+					<a class="carousel_pic" href="#"><img src="img/carousel1.jpg" /></a>
+				</div>
+			</div>
+
+		</div>
+		<!--抢购区-->
+		<div class="product">
+			<div class="wrap seckill clearfix">
+				<div class="seckill_pic">
+					<img src="img/seckill_banner.jpg" />
+				</div>
+				<div class="seckill_list">
+					<ul class="seckill_goods clearfix">
+						<div class="wai">
+							<a href="#">
+ 
+								<li class="seckill_good clearfix">
+									<div class="good_left clearfix">
+
+										<div class="good_name">光明 莫斯利安 常温牛奶（原味）200g*24</div>
+										<div class="good_price">¥82.9</div>
+										<div class="good_ref_price">参考价：¥109.9</div>
+									</div>
+
+									<div class="good_right">
+										<img src="img/seckill_good1.jpg" />
+									</div>
+
+								</li>
+							</a>
+						</div>
+						<div class="wai">
+							<a href="#">
+
+								<li class="seckill_good clearfix">
+									<div class="good_left">
+
+										<div class="good_name">三枪女士家居服 开襟空调衫弹力</div>
+										<div class="good_price">¥89.9</div>
+										<div class="good_ref_price">参考价：¥99.9</div>
+									</div>
+
+									<div class="good_right">
+										<img src="img/seckill_good2.jpg" />
+									</div>
+
+								</li>
+							</a>
+						</div>
+						<div class="wai">
+							<a href="#"></a>
+
+							<li class="seckill_good clearfix">
+								<div class="good_left">
+
+									<div class="good_name">可口可乐Coca Cola 汽水饮料</div>
+									<div class="good_price">¥40.9</div>
+									<div class="good_ref_price">参考价：¥49.9</div>
+								</div>
+
+								<div class="good_right">
+									<img src="img/seckill_good3.jpg" />
+								</div>
+
+							</li>
+							</a>
+						</div>
+						<div class="wai">
+							<a href="#">
+
+								<li class="seckill_good clearfix">
+									<div class="good_left">
+
+										<div class="good_name">奥妙 &nbsp;&nbsp;&nbsp;除菌除螨&nbsp;&nbsp;&nbsp;洗衣液 </div>
+										<div class="good_price">¥66.5</div>
+										<div class="good_ref_price">参考价：¥116.5</div>
+									</div>
+
+									<div class="good_right">
+										<img src="img/seckill_good4.jpg" />
+									</div>
+
+								</li>
+							</a>
+						</div>
+
+					</ul>
+
+				</div>
+
+			</div>
+			<div class="wrap brand_sale clearfix ">
+
+				<div class="left_banner"><img src="img/left_banner.jpg" /></div>
+				<div class="group_buy clearfix">
+					<h4>
+						<a href="#">
+						<em><u class="left_triangle"></u>团购</em>
+						</a>
+					</h4>
+
+					<div class="group_buy_left"><img src="img/cool_summer.jpg" /></div>
+					<div class="group_buy_right">
+						
+					
+					<div class="group_buy_right_top">
+						<div class="group_buy_right_font">
+							<a title="清凉一夏" target="_blank" href="#">
+								<dl>
+									<dt>量贩团</dt>
+									<dd>南极人内裤</dd>
+								</dl>
+						</div>
+						<div class="group_buy_right_img"><img src="img/volume_group.jpg" /></div>
+						</a>
+
+					</div>
+
+					<div class="group_buy_right_bottom">
+						<div class="group_buy_right_font">
+							<a title="保洁神券日" target="_blank" href="#">
+								<dl>
+									<dt>保洁神券日</dt>
+									<dd>领券199减110</dd>
+								</dl>
+						</div>
+						<div class="group_buy_right_img"><img src="img/clean_ticket.jpg" /></div>
+						</a>
+
+					</div>
+					</div>
+				</div>
+
+				<div class="area_rank ">
+					<h4>
+						<a href="#">
+						<em><u class="left_triangle"></u>排行榜</em>
+						</a>
+					</h4>
+
+					<div class="area_rank_top clearfix">
+						<ul clearfix>
+							<li>
+								<a title="进口食品" href="#">进口食品</a>
+							</li>
+							<li>
+								<a title="粮油调味" href="#">粮油调味</a>
+							</li>
+							<li>
+								<a title="清洁用品" href="#">清洁用品</a>
+							</li>
+							<li>
+								<a title="休闲食品" href="#">休闲食品</a>
+							</li>
+							<li>
+								<a title="饮料冲调" href="#">饮料冲调</a>
+							</li>
+
+						</ul>
+					</div>
+					<div class="area_rank_bottom clearfix">
+						<ul clearfix>
+							<li>
+								<a title="进口粮食" href="#"><img src="img/rank_list1.jpg" />
+									<p>网红印尼pepsi</p>
+								</a>
+							</li>
+							<li>
+								<a title="粮油调味" href="#"><img src="img/rank_list2.jpg" />
+									<p>{领券-满99减50}</p>
+								</a>
+							</li>
+							<li>
+								<a title="清洁用品" href="#"><img src="img/rank_list3.jpg" />
+									<p>【中粮海外直采】</p>
+								</a>
+							</li>
+							<li>
+								<a title="休闲食品" href="#"><img src="img/rank_list4.jpg" />
+									<p>罗马尼亚进口 小鳄</p>
+								</a>
+							</li>
+							<li>
+								<a title="饮料冲调" href="#"><img src="img/rank_list5.jpg" />
+									<p>费列罗巧克力礼盒</p>
+								</a>
+							</li>
+							<li>
+								<a title="饮料冲调" href="#"><img src="img/rank_list6.jpg" />
+									<p>瑞士莲 进口 特醇</p>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<div class="wrap high_beer">
+				<img src="img/high_beer(1).jpg"/>
+				
+			</div>
+			<!--全球进口区-->
+			<div class="wrap global clearfix">
+				<p>全球进口</p>
+				<div class="global_perrier">
+					<img src="img/perrier.jpg"/>
+				</div>
+				
+				<div class="global_love clearfix">
+					<div class="global_love_left clearfix">
+						<div class="global_love_left_top">
+							<img src="img/love_gift.jpg"/>
+						</div>
+						<div class="global_love_left_bottom clearfix">
+							<div class="global_love_left_bottom_left">
+								<p>赛列罗巧克力</p><br>
+								<span>至臻心愿</span>
+								<img src="img/chocolate.jpg"/>
+							</div>
+							<div class="global_love_left_bottom_right clearfix">
+								<p>进口粮油米面</p><br>
+								<span>3件5折</span>
+								<img src="img/grain_oil.jpg"/>
+							</div>
+						</div>
+					</div>
+					<div class="global_love_right">
+						<ul>
+							<div class="global_love_right_top">
+								<p>进口休闲零食</p><br>
+								<span>3件5折</span>
+									
+								
+								<img src="img/snacks.jpg"/>
+							</div>
+							<div class="global_love_right_bottom">
+								<p>进口水饮冲调</p><br />
+								<span>3件5折</span>
+								
+								<img src="img/drink_water_rich.jpg"/>
+							</div>
+							
+						</ul>
+					</div>
+					
+				</div>
+				<div class="global_right">
+					<ul>
+						<li class="beauty">
+							<span class="pink">进口美护</span>
+							<p>BEAUTY</p>
+							<div class="boxA"></div>
+								
+							
+							
+							<img src="img/import_beauty_care.png" ></li>
+						<li class="fresh">
+							<span class="green">进口生鲜</span>
+							<p>FRESH</p>
+							<div class="boxB"></div>
+
+							<img src="img/import_fresh.png" ></li>
+						<li class="cleantng">
+							<span class="cerulean">进口厨卫清洁</span>
+							
+							<p>CLEANTNG</p>
+							<div class="boxC"></div>
+
+							<img src="img/import_kitchen_cleaner.png" ></li>
+					</ul>
+					<ul>
+						<li class="mom">
+							<span class="yellow">进口母婴</span>
+							<p>MOM&BABY</p>
+							<div class="boxD"></div>
+
+							<img src="img/import_infant_mom.png" ></li>
+						<li class="home">
+							<span class="baby">进口家具</span>
+							<p>HOME</p>
+							<div class="boxE"></div>
+
+							<img src="img/import_home.png" ></li>
+						<li class="health">
+							<span class="green">进口保健品</span>
+							<p>HEALTH</p>
+							<div class="boxF"></div>
+
+							<img src="img/import_health_care_products.png" ></li>
+					</ul>
+					
+				</div>
+			</div>
+			<div class="wrap understand clearfix">
+				<ul>
+					<li>
+						<img src="img/you_like_list1.jpg" >
+						<p><span class="self">自营</span>港荣蒸蛋糕 饼干蛋糕 奶香蒸蛋糕 早餐面包 零食小吃 送礼臻品</p>
+						<h5>￥39.9</h5>
+					</li>
+					<li>
+						<img src="img/you_like_list2.jpg" >
+						<p><span class="self">自营</span>瑞彩去污白海棉3只装</p>
+						<h5>￥10.0</h5><span class="presenter">满赠</span>
+					</li>
+					<li>
+						<img src="img/you_like_list3.jpg" >
+						<p><span class="self">自营</span>牧羊少年奇幻之旅</p>
+						<h5>￥27.6</h5><span class="presenter">满赠</span>
+					</li>
+					<li>
+						<img src="img/you_like_list4.jpg" >
+						<p><span class="self">自营</span>挪威的森林(2016版)</p>
+						<h5>￥21.9</h5><span class="presenter">满赠</span>
+					</li>
+					<li>
+						<img src="img/you_like_list5.jpg" >
+						<p>香馜 洗衣液袋装瓶装共5kg套装柔顺洁净薰衣草香氛洗衣液</p>
+						<h5>￥39.9</h5>
+					</li>
+					<li>
+						<img src="img/you_like_list6.jpg" >
+						<p><span class="self">自营</span>厨美圆形20CM蒸笼纸 包子馒头点心垫纸 烘培纸不沾笼屍纸150张</p>
+						<h5>￥24.9</h5><span class="minus">满减</span>
+					</li>
+					<li>
+						<img src="img/you_like_list7.jpg" >
+						<p><span class="self">自营</span>美的（Midea）电水壶 304不锈钢电热水壶 1.7L容量 双层防烫</p>
+						<h5>￥99.0</h5>
+					</li>
+					<li>
+						<img src="img/you_like_list8.jpg" >
+						<p>【夏商精选】法国原装进口啤酒 克伦堡凯旋1664白啤酒 蓝瓶</p>
+						<h5>￥188.8</h5>
+					</li>
+					<li>
+						<img src="img/you_like_list9.jpg" >
+						<p><span class="self">自营</span>雪山 EB9005L 圆滑背光电子称 体重秤 人体秤</p>
+						<h5>￥59.0</h5><span class="ticket">领卷</span>
+					</li>
+					<li>
+						<img src="img/you_like_list10.jpg" >
+						<p><span class="self">自营</span>飞科（FLYCO）电吹风机家用FH6232大功率吹风筒 2000W</p>
+						<h5>￥59.0</h5><span class="minus">满减</span>
+					</li>
+					<li>
+						<img src="img/you_like_list12.jpg" >
+						<p>欧普照明 led灯泡球泡高亮 持久E27/E14螺口球泡 灯泡照明节能</p>
+						<h5>￥18.9</h5><span class="full">满减</span><span class="presenter">满折</span>
+					</li>
+					<li>
+						<img src="img/you_like_list13.jpg" >
+						<p><span class="self">自营</span>红豆内衣男士秋衣秋裤套装纯棉低圆领棉毛衫棉毛裤基础打底裤</p>
+						<h5>￥49.8</h5><span class="presenter">满赠</span>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<div class="wrap ft_service clearfix">
+				<a>
+					<img src="img/quality.jpg" />
+					<b>正品保障</b>
+					<span>正品行货 放心选购</span>
+				</a>
+				<a>
+					<img src="img/postage.jpg" />
+					<b>满86包邮</b>
+					<span>满86 免邮费</span>
+				</a>
+				<a>
+					<img src="img/after_sale.jpg" />
+					<b>售后无忧</b>
+					<span>7天无理由退货</span>
+				</a>
+				<a>
+					<img src="img/punctuality.jpg" />
+					<b>准时送达</b>
+					<span>收货时间由你做主</span>
+				</a>
+
+			</div>
+
+			<div class=" wrap ft_service_link clearfix">
+				<div class="ft_help_list clearfix">
+					<dl>
+						<dt>新手入门</dt>
+						<dd>
+							<a href="#" target=" _blank">购物流程</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">会员制度</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">订单查询</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">发票制度</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">网站地图</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>支付方式</dt>
+						<dd>
+							<a href="#" target=" _blank">货到付款</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">网上支付</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">礼品卡支付</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">其它支付</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>配送服务</dt>
+						<dd>
+							<a href="#" target=" _blank">配送进度查询</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">商品验货与签收</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>售后保障</dt>
+						<dd>
+							<a href="#" target=" _blank">退换货政策</a>
+						</dd>
+						<dd>
+							<a href="#" target=" _blank">联系客服</a>
+						</dd>
+					</dl>
+
+				</div>
+				<div class="ft_help_zhong">
+					<p>APP更优惠</p>
+					<img src="img/erweima.jpg" />
+				</div>
+				<div class="ft_help_right">
+					<p>加微信查订单</p>
+					<img src="img/erweima - 1.jpg" />
+				</div>
+
+			</div>
+			<div class="wrap ft_help_bottom">
+				<p class="ft_copy_right">
+					<a href="#">泸ICP备16050468号</a>|
+					<a href="#">经营证照</a>|
+					<a href="#">互联网药品信息服务资格证</a>|
+					<a href="#">违法和不良信息举报电话：0527-88100253</a>
+					|
+					<a href="#">泸 B2-20170039</a>|
+					<a href="#">泸公网安备31010502002939号</a>|
+					<a href="#">友情链接</a>
+				</p>
+				<p class="ft_copy_right">
+					copyright&copy;1号店网上超市 2007-2017,All Rights reserved
+				</p>
+				<div class="ft_pic_link">
+					<a href="#" target="_blank">
+						<img src="img/copyright1.jpg" />
+					</a>
+					<a href="#" target="_blank">
+						<img src="img/copyright2.jpg" />
+					</a>
+					<a href="#" target="_blank">
+						<img src="img/copyright3.jpg" />
+					</a>
+					<a href="#" target="_blank">
+						<img src="img/copyright4.jpg" />
+					</a>
+					<a href="#" target="_blank">
+						<img src="img/copyright5.png" />
+					</a>
+					<a href="#" target="_blank">
+						<img src="img/copyright6.png" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
 </html>
